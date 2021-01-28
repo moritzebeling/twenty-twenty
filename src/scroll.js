@@ -10,7 +10,7 @@ export function scrollListen(callback) {
   let touchmove = throttle( (event) => {
     var delta = start - event.touches[0].clientY || 0;
     if( delta ) {
-      return callback(delta);
+      return callback(delta / 10);
     }
   }, 20);
 
