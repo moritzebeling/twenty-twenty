@@ -14,5 +14,6 @@ export function wheelListen(callback) {
   }, 10);
 
   window.addEventListener('wheel', listener);
+  window.addEventListener('touchmove', listener);
   return listener;
 }
