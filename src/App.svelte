@@ -7,9 +7,13 @@
 
 	wheelListen(( d )=>{
 		position -= d;
-    });
+	});
+
+	import Title from './Title.svelte';
 
 </script>
+
+<Title />
 
 <svelte:window bind:innerHeight={height} />
 
@@ -29,7 +33,7 @@
 			<h1><span>2</span></h1>
 		{/each}
 	</div>
-	<div class="slot s4" style="transform: translateY({ position % height  }px);">
+	<div class="slot s4" style="transform: translateY({ position % height }px);">
 		{#each new Array(3) as i}
 			<h1><span>0</span></h1>
 		{/each}
