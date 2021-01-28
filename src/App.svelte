@@ -1,11 +1,11 @@
 <script>
 
-	import { wheelListen } from './wheel.js';
+	import { scrollListen } from './scroll.js';
 
 	let height = 0;
 	let position = 0;
 
-	wheelListen(( d )=>{
+	scrollListen(( d )=>{
 		position -= d;
 	});
 
