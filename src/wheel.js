@@ -1,8 +1,6 @@
-'use strict'
-
 import throttle from 'just-throttle';
 
-export function mouseWheelListen(callback) {
+export function wheelListen(callback) {
 
   let listener = throttle( (event) => {
     console.log('tick');

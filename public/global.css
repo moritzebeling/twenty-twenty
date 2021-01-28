@@ -11,13 +11,3 @@ body {
 	color: #fff;
 	height: 100vh;
 }
-
-.digits {
-	text-align: center;
-	font-size: 25vw;
-}
-@media( max-height: 30vw ){
-	.digits {
-		font-size: 70vh;
-	}
-}
