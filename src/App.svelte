@@ -1,55 +1,71 @@
 <script>
 
-	const year = '2020';
-
-	let scrollPos = 0;
-
 	import { mouseWheelListen } from './mouse-wheel.js';
 
-	mouseWheelListen(function(dx, dy) {
-      scrollPos = dy
-    }, true);
+	const year = '2020';
+
+	let height = 0;
+	let position = 0;
+	let delta = 0;
+
+	mouseWheelListen(( d )=>{
+    	position -= d;
+    	delta = d;
+    });
 
 </script>
 
+<svelte:window bind:innerHeight={height} />
+
 <main class="digits">
-	<ul>
-		{#each year.split('') as digit, x}
-			<li class="slot s{x}">
-				{#each new Array(3) as y}
-					<div><span>{digit}</span></div>
-				{/each}
-			</li>
+	<div class="slot s1" style="transform: translateY({ position / 1000  }px);">
+		{#each new Array(5) as y}
+			<div>
+				<span>2</span>
+			</div>
 		{/each}
-	</ul>
+	</div>
+	<div class="slot s2" style="transform: translateY({ position / 100 % height }px);">
+		{#each new Array(3) as y}
+			<div>
+				<span>0</span>
+			</div>
+		{/each}
+	</div>
+	<div class="slot s3" style="transform: translateY({ position / 10 % height }px);">
+		{#each new Array(3) as y}
+			<div>
+				<span>2</span>
+			</div>
+		{/each}
+	</div>
+	<div class="slot s4" style="transform: translateY({ position % height  }px);">
+		{#each new Array(3) as y}
+			<div>
+				<span>0</span>
+			</div>
+		{/each}
+	</div>
 </main>
 
-<aside>{scrollPos}</aside>
+<aside>{position} / {delta} / {height}</aside>
 
 <style>
 
-	main {
-		height: 100vh;
-		text-align: center;
-		color: #fff;
-	}
-	ul {
-		height: 100vh;
-		display: flex;
-		list-style: none;
-		padding: 0;
-	}
-	li {
-		flex: 1 1 25%;
-		height: 100vh;
+	.slot {
+		position: fixed;
+		top: -100vh;
+		width: 25%;
+		height: 300vh;
 		overflow-y: hidden;
-
 	}
-	li > div {
-		display: block;
-		border: 1px solid #f00;
-		padding: 1rem;
-		height: 100%;
+	.s1 { left: 0; }
+	.s2 { left: 25vw; }
+	.s3 { left: 50vw; }
+	.s4 { left: 75vw; }
+
+	.slot > div {
+		height: 100vh;
 		box-sizing: border-box;
 		display: flex;
 		justify-content: center;

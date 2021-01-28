@@ -1,36 +1,20 @@
 'use strict'
 
-export function mouseWheelListen(element, callback, noScroll) {
-  if(typeof element === 'function') {
-    noScroll = !!callback
-    callback = element
-    element = window
-  }
-  var lineHeight = 1;
-  var listener = function(ev) {
-    if(noScroll) {
-      ev.preventDefault()
+import throttle from 'just-throttle';
+
+export function mouseWheelListen(callback) {
+
+  let listener = throttle( (event) => {
+    console.log('tick');
+
+    var delta = event.deltaY || 0;
+
+    if( delta ) {
+      return callback(delta);
     }
-    var dx = ev.deltaX || 0
-    var dy = ev.deltaY || 0
-    var dz = ev.deltaZ || 0
-    var mode = ev.deltaMode
-    var scale = 1
-    switch(mode) {
-      case 1:
-        scale = lineHeight
-      break
-      case 2:
-        scale = window.innerHeight
-      break
-    }
-    dx *= scale
-    dy *= scale
-    dz *= scale
-    if(dx || dy || dz) {
-      return callback(dx, dy, dz, ev)
-    }
-  }
-  element.addEventListener('wheel', listener)
-  return listener
+
+  }, 10);
+
+  window.addEventListener('wheel', listener);
+  return listener;
 }
