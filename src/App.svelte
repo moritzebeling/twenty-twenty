@@ -2,19 +2,29 @@
 
 	const year = '2020';
 
+	let scrollPos = 0;
+
+	import { mouseWheelListen } from './mouse-wheel.js';
+
+	mouseWheelListen(function(dx, dy) {
+      scrollPos = dy
+    }, true);
+
 </script>
 
-<main>
+<main class="digits">
 	<ul>
 		{#each year.split('') as digit, x}
 			<li class="slot s{x}">
-				{#each new Array(10) as y}
+				{#each new Array(3) as y}
 					<div><span>{digit}</span></div>
 				{/each}
 			</li>
 		{/each}
 	</ul>
 </main>
+
+<aside>{scrollPos}</aside>
 
 <style>
 
@@ -32,7 +42,7 @@
 	li {
 		flex: 1 1 25%;
 		height: 100vh;
-		overflow-y: scroll;
+		overflow-y: hidden;
 
 	}
 	li > div {
@@ -44,6 +54,15 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	aside {
+		position: fixed;
+		bottom: 1rem;
+		left: 1rem;
+		padding: 0.5rem;
+		background-color: #333;
+		z-index: 10;
 	}
 
 </style>
