@@ -2,15 +2,11 @@
 
 	import { mouseWheelListen } from './mouse-wheel.js';
 
-	const year = '2020';
-
 	let height = 0;
 	let position = 0;
-	let delta = 0;
 
 	mouseWheelListen(( d )=>{
-    	position -= d;
-    	delta = d;
+		position -= d;
     });
 
 </script>
@@ -48,8 +44,6 @@
 	</div>
 </main>
 
-<aside>{position} / {delta} / {height}</aside>
-
 <style>
 
 	.slot {
@@ -70,15 +64,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-
-	aside {
-		position: fixed;
-		bottom: 1rem;
-		left: 1rem;
-		padding: 0.5rem;
-		background-color: #333;
-		z-index: 10;
 	}
 
 </style>
