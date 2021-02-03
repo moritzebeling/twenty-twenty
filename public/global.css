@@ -5,9 +5,14 @@
 	border: none;
 }
 
+@font-face {
+	font-family: 'Simplon';
+	src: url('/fonts/SimplonMono-Bold.woff2') format('woff2');
+}
+
 body {
 	overflow: hidden;
-	font-family: monospace;
+	font-family: 'Simplon', monospace;
 	background-color: #000;
 	color: #fff;
 	height: 100vh;
