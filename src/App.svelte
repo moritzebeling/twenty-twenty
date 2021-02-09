@@ -11,6 +11,9 @@
 
 	import Title from './Title.svelte';
 
+	import Zero from './Zero.svelte';
+	import Two from './Two.svelte';
+
 </script>
 
 <Title />
@@ -20,22 +23,22 @@
 <main class="digits">
 	<div class="slot s1" style="transform: translateY({ position / 1000  }px);">
 		{#each new Array(5) as i}
-			<h1><span>2</span></h1>
+			<div class="digit"><Two /></div>
 		{/each}
 	</div>
 	<div class="slot s2" style="transform: translateY({ position / 100 % height }px);">
 		{#each new Array(3) as i}
-			<h1><span>0</span></h1>
+			<div class="digit"><Zero /></div>
 		{/each}
 	</div>
 	<div class="slot s3" style="transform: translateY({ position / 10 % height }px);">
 		{#each new Array(3) as i}
-			<h1><span>2</span></h1>
+			<div class="digit"><Two /></div>
 		{/each}
 	</div>
 	<div class="slot s4" style="transform: translateY({ position % height }px);">
 		{#each new Array(3) as i}
-			<h1><span>0</span></h1>
+			<div class="digit"><Zero /></div>
 		{/each}
 	</div>
 </main>
@@ -48,7 +51,7 @@
 		font-weight: bold;
 	}
 
-	div {
+	.slot {
 		position: fixed;
 		top: -100vh;
 		width: 25%;
@@ -61,13 +64,14 @@
 	.s3 { left: 50vw; }
 	.s4 { left: 75vw; }
 
-	h1 {
+	.digit {
 		font: inherit;
 		height: 100vh;
 		box-sizing: border-box;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 10vh 1rem;
 	}
 
 	@media( max-height: 30vw ){
