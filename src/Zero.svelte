@@ -15,8 +15,8 @@
 		display: block;
 		position: absolute;
 		box-sizing: border-box;
-		border: 80px solid #fff;
-		border-radius: 100px;
+		border: 6vw solid #fff;
+		border-radius: 10vw;
 		width: 100%;
         height: 100%;
 	}

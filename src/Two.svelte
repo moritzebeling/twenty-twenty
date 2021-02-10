@@ -24,8 +24,8 @@
 		display: block;
 		position: absolute;
 		box-sizing: border-box;
-		border: 80px solid #fff;
-		border-radius: 100px;
+		border: 6vw solid #fff;
+		border-radius: 10vw;
 		width: 100%;
         height: 100%;
 	}
@@ -35,6 +35,7 @@
 		width: 100%;
 		height: 50%;
 		overflow: hidden;
+		min-height: 6vw;
 	}
 	.crop span {
 		width: 100%;
@@ -51,7 +52,7 @@
 	}
 
 	.crop.right {
-		height: 50%;
+		height: calc( 50% + 3vw );
 		left: 50%;
 		width: 50%;
 	}
@@ -63,9 +64,9 @@
 	}
 
 	.crop.left {
-		top: 50%;
+		bottom: 0;
 		width: 50%;
-		height: 50%;
+		height: calc( 50% + 3vw );
 	}
 	.crop.left span {
 		width: 200%;
